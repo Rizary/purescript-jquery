@@ -261,18 +261,18 @@ exports["off'"] = function(ob) {
 };
 
 exports.click = function (ob) {
-    return function() {
-	return ob.click();
-    };
-};
-
-exports["click'"] = function (act) {
     return function (ob) {
 	return function() {
 	    return ob.click(function(e){
 		act(e)(JQuery(this))();
 	    });
 	};
+    };
+};
+
+exports["click'"] = function (act) {
+    return function() {
+	return ob.click();
     };
 };
     

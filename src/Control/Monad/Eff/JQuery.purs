@@ -254,6 +254,19 @@ foreign import off'
    . JQuery
    -> Eff (dom :: DOM | eff) Unit
 
+-- | Bind an event handler to "click" event
+foreign import click
+  :: forall eff a
+   . (JQueryEvent -> JQuery -> Eff (dom :: DOM | eff) a)
+  -> JQuery
+  -> Eff (dom :: DOM | eff) Unit
+
+-- | "click" event
+foreign import click'
+  :: forall eff a
+   . JQuery
+  -> Eff (dom :: DOM | eff) Unit
+
 -- | Get an array of matching elements.
 foreign import toArray
   :: forall eff
